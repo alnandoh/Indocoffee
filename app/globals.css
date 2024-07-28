@@ -78,4 +78,7 @@
   .wrapper{
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full;
   }
+  .nav-link{
+    @apply hover:text-green-500 transition-transform transform hover:scale-105 animate-fade-in;
+  }
 }
