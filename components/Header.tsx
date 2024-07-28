@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <div
-      className={`sticky top-0 left-0 w-full bg-slate-300 h-[60px] z-10 transition-transform duration-300 ${
+      className={`sticky top-0 left-0 w-full bg-slate-300/60 backdrop-blur h-[60px] z-10 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
