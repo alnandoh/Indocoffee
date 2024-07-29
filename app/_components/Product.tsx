@@ -38,7 +38,7 @@ export default function Product() {
           <Image
             src={hero}
             alt="Java Temanggung Robusta Coffee Beans"
-            className="object-cover"
+            className="object-cover transition duration-300 ease-in hover:scale-105"
           />
         </div>
         <div className="order-4 md:order-3 space-y-2 lg:space-y-4">

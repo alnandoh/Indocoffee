@@ -31,9 +31,11 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <div
-      className={`sticky top-0 left-0 w-full bg-slate-300/60 backdrop-blur h-[60px] z-10 transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
+    <header
+      className={`sticky top-0 left-0 w-full h-[60px] z-10 transition-transform duration-300 ${
+        isVisible
+          ? "translate-y-0 bg-slate-300/35 backdrop-blur"
+          : "-translate-y-full bg-transparent"
       }`}
     >
       <div className="wrapper h-full flex justify-between items-center px-4">
@@ -85,6 +87,6 @@ export default function Header() {
           </Sheet>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
