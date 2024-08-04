@@ -3,33 +3,34 @@ import hero from "@/public/Hero.webp";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-60px)] h-fit flex items-center justify-center">
-      <div className="">
-        <Image
-          src={hero}
-          alt="Hero Image"
-          fill
-          className="object-cover opacity-90 -z-10 brightness-50"
-          priority
-        />
-        <div className="absolute inset-0 flex items-center justify-center lg:p-8 bg-black/50">
-          <div className="wrapper py-8 lg:py-16 grid grid-cols-1 md:grid-cols-2 gap-4 text-stone-100 animate-fade-in">
-            <h1 className="animate-fade-in lg:col-span-2 lg:text-center lg:mb-4">
-              NusaBean Coffee
-            </h1>
-            <div className="flex flex-col justify-between gap-4">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <Image
+        src={hero}
+        alt="Hero Image"
+        fill
+        className="object-cover opacity-90 -z-10 brightness-50"
+        priority
+        quality={75}
+      />
+      <div className="absolute inset-0 flex items-center justify-center bg-black/50 p-4 lg:p-8">
+        <div className="container mx-auto px-4 lg:px-8 py-8 lg:py-16 flex flex-col md:items-center gap-6 text-stone-100">
+          <h1 className="font-bold md:text-center leading-tight animate-fade-in">
+            NusaBean Coffee
+          </h1>
+          <div className="flex flex-col md:items-center gap-6 lg:items-start lg:flex-row lg:gap-12 lg:justify-between">
+            <div className="flex flex-col gap-4 max-w-xl lg:max-w-lg">
               <h2 className="animate-fade-in">
-                Discover the <br /> Essence of Indonesian Coffee
+                Discover the Finest <br /> Essence of Indonesian Coffee
               </h2>
               <a
                 href="#"
-                className="p-4 text-center bg-green-700 rounded-xl hidden lg:flex"
+                className="p-2 md:p-4 text-center bg-one-800 text-white rounded-xl shadow-lg hover:bg-one-700 transition duration-300"
               >
-                Get started!
+                Get Started!
               </a>
             </div>
-            <div className="animate-fade-in">
-              <p className="text-base md:text-lg">
+            <div className="max-w-xl lg:max-w-lg text-base md:text-lg">
+              <p className="animate-fade-in">
                 At NusaBean Coffee, we are dedicated to working hand-in-hand
                 with local farmers to bring you the finest Indonesian green
                 coffee beans. The skilled farmers of Indonesia excel in

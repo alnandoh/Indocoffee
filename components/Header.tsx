@@ -8,18 +8,27 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import Image from "next/image";
+import logoWhite from "@/public/NusaBean Logo - Normal.png";
+import logoBlack from "@/public/NusaBean Logo - Hitam.png";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [atTop, setAtTop] = useState(true);
 
   const handleScroll = () => {
-    if (window.scrollY > lastScrollY) {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY) {
       setIsVisible(false);
     } else {
       setIsVisible(true);
     }
-    setLastScrollY(window.scrollY);
+    setLastScrollY(currentScrollY);
+
+    // Update atTop state
+    setAtTop(currentScrollY === 0);
   };
 
   useEffect(() => {
@@ -32,15 +41,33 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 left-0 w-full h-[60px] z-10 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full h-[80px] z-10 transition-transform duration-300 ${
         isVisible
-          ? "translate-y-0 bg-slate-300/35 backdrop-blur"
+          ? atTop
+            ? "bg-transparent text-white"
+            : "bg-three/30 backdrop-blur border-b border-black"
           : "-translate-y-full bg-transparent"
       }`}
     >
       <div className="wrapper h-full flex justify-between items-center px-4">
-        <Link href="/" className="">
-          <div>Logo</div>
+        <Link href="/" className="flex items-center h-full">
+          <div className="relative h-20 w-20">
+            {atTop ? (
+              <Image
+                src={logoWhite}
+                alt="NusaBean Logo"
+                fill
+                className="object-contain"
+              />
+            ) : (
+              <Image
+                src={logoBlack}
+                alt="NusaBean Logo"
+                fill
+                className="object-contain"
+              />
+            )}
+          </div>
         </Link>
         <div className="hidden md:flex justify-between gap-4">
           <Link href="/products" className="nav-link">
