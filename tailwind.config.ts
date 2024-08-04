@@ -105,6 +105,10 @@ const config = {
         "fade-in": "fadeIn 1s ease-out",
         "slide-in-right": "slideInRight 1s ease-out",
       },
+      boxShadow: {
+        light: "0 0 8px rgba(0, 0, 0, 0.03)",
+        bold: "0 0 24px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -7,9 +7,7 @@ export default function page() {
     <div className="min-h-screen">
       <PageHeader img={hero} title={"Our Coffee"} />
 
-      <section className="py-8">
-        <ProductTable />
-      </section>
+      <ProductTable />
     </div>
   );
 }

@@ -203,19 +203,19 @@ const productData: Product[] = [
 
 const CoffeeProductDisplay = () => {
   return (
-    <div className="wrapper py-8">
+    <section className="wrapper py-6 md:py-10 lg:py-16">
       <div className="space-y-8">
         {productData.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col sm:flex-row">
+    <div className="bg-white shadow-light transition duration-200 ease-in hover:shadow-bold rounded-xl overflow-hidden flex flex-col sm:flex-row border border-slate-200">
       <div className="relative w-full sm:w-1/3 h-48 sm:h-auto">
         <Image
           src={product.image}
@@ -267,7 +267,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             {product.flavors.map((flavor, index) => (
               <span
                 key={index}
-                className="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs"
+                className="px-2 py-1 bg-two-500 text-one-800 rounded-full text-xs"
               >
                 {flavor}
               </span>
