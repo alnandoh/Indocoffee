@@ -13,7 +13,7 @@ export default function Product() {
           <Image
             src={Arabica}
             alt="Java Temanggung Arabica Coffee Beans"
-            className="object-contain"
+            className="object-contain transition duration-300 ease-in hover:scale-105"
           />
         </div>
         <div className="order-2 md:order-2 space-y-2 lg:space-y-4">

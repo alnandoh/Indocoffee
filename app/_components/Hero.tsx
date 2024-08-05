@@ -1,5 +1,5 @@
 import Image from "next/image";
-import hero from "@/public/Hero.webp";
+import hero from "@/public/Owner Photo.webp";
 
 export default function Hero() {
   return (

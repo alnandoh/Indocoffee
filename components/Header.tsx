@@ -83,36 +83,49 @@ export default function Header() {
             Contact
           </Link>
         </div>
+
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <button>
-                <Menu className="h-6 w-6 m-auto" />
+              <button className="text-white p-2 rounded-md hover:bg-white/20 transition-colors">
+                <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col gap-4">
+            <SheetContent side="right" className="bg-white p-8 rounded-lg">
+              <div className="flex flex-col gap-4">
                 <SheetClose asChild>
-                  <Link href="/" className="lg:hidden">
+                  <Link
+                    href="/"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
                     Home
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/products" className="lg:nav-link">
+                  <Link
+                    href="/products"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
                     Products
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/gallery" className="lg:nav-link">
+                  <Link
+                    href="/gallery"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
                     Gallery
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/contact-us" className="lg:nav-link">
+                  <Link
+                    href="/contact-us"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
                     Contact
                   </Link>
                 </SheetClose>
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
