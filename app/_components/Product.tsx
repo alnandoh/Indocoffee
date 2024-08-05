@@ -1,16 +1,17 @@
 import Image from "next/image";
-import hero from "@/public/Hero1.webp";
+import Arabica from "@/public/Arabika - Natural.webp";
+import Robusta from "@/public/Robusta G1.webp";
 
 export default function Product() {
   return (
-    <section className="wrapper py-16 min-h-screen flex flex-col gap-8 justify-center bg-zinc-500">
+    <section className="wrapper py-16 min-h-screen flex flex-col gap-8 justify-center">
       <h2 className="text-center text-3xl font-bold animate-fade-in">
         Our Green Coffee Beans
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center animate-fade-in">
         <div className="order-1 md:order-1 relative rounded-lg lg:rounded-xl overflow-hidden">
           <Image
-            src={hero}
+            src={Arabica}
             alt="Java Temanggung Arabica Coffee Beans"
             className="object-contain"
           />
@@ -36,7 +37,7 @@ export default function Product() {
         </div>
         <div className="order-3 md:order-4 relative rounded-lg lg:rounded-xl overflow-hidden">
           <Image
-            src={hero}
+            src={Robusta}
             alt="Java Temanggung Robusta Coffee Beans"
             className="object-cover transition duration-300 ease-in hover:scale-105"
           />

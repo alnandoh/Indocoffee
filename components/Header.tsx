@@ -70,6 +70,9 @@ export default function Header() {
           </div>
         </Link>
         <div className="hidden md:flex justify-between gap-4">
+          <Link href="/" className="nav-link">
+            Home
+          </Link>
           <Link href="/products" className="nav-link">
             Products
           </Link>

@@ -26,7 +26,7 @@ interface Product {
 const productData: Product[] = [
   {
     name: "Robusta - Java Temanggung Extended Natural (Wine)",
-    image: "/Hero1.webp",
+    image: "/Robusta Wine.webp",
     process: "Extended Natural (Wine)",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
@@ -46,7 +46,7 @@ const productData: Product[] = [
   },
   {
     name: "Robusta - Java Temanggung Natural",
-    image: "/Hero.webp",
+    image: "/Robusta Natural.webp",
     process: "Natural",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
@@ -66,7 +66,7 @@ const productData: Product[] = [
   },
   {
     name: "Robusta - Java Temanggung Honey",
-    image: "/Hero.webp",
+    image: "/Robusta Honey.webp",
     process: "Honey",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
@@ -86,7 +86,7 @@ const productData: Product[] = [
   },
   {
     name: "Arabica - Java Temanggung Wine",
-    image: "/Hero.webp",
+    image: "/Arabika - Wine.webp",
     process: "Wine",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "1500-1800 MASL",
@@ -105,7 +105,7 @@ const productData: Product[] = [
   },
   {
     name: "Arabica - Java Temanggung Natural",
-    image: "/Hero.webp",
+    image: "/Arabika - Natural.webp",
     process: "Natural",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "1500-1800 MASL",
@@ -125,7 +125,7 @@ const productData: Product[] = [
   },
   {
     name: "Arabica - Java Temanggung Honey",
-    image: "/Hero.webp",
+    image: "/Arabika Honey 1.webp",
     process: "Honey",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "1500-1800 MASL",
@@ -145,7 +145,7 @@ const productData: Product[] = [
   },
   {
     name: "Arabica - Java Temanggung Grade 1 Full Wash",
-    image: "/Hero.webp",
+    image: "/Arabika G1 - Full Wash.webp",
     process: "Full Wash",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "1500-1800 MASL",
@@ -163,7 +163,7 @@ const productData: Product[] = [
   },
   {
     name: "Robusta - Java Temanggung Fine",
-    image: "/Hero.webp",
+    image: "/Robusta Green Bean.webp",
     process: "Dry",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
@@ -182,7 +182,7 @@ const productData: Product[] = [
   },
   {
     name: "Robusta - Java Temanggung Grade 1",
-    image: "/Hero.webp",
+    image: "/Robusta G1.webp",
     process: "Dry",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
@@ -222,6 +222,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           alt={product.name}
           layout="fill"
           objectFit="cover"
+          objectPosition="center"
         />
       </div>
       <div className="p-4 sm:p-6 flex-1 flex flex-col">
