@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import FooterLogo from "@/public/NusaBean Logo - Hijau 2.png";
+import FooterLogo from "@/public/NusaBean Logo - Hijau 2.svg";
 
 export default function Footer() {
   return (

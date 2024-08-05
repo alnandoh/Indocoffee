@@ -9,8 +9,8 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Image from "next/image";
-import logoWhite from "@/public/NusaBean Logo - Normal.png";
-import logoBlack from "@/public/NusaBean Logo - Hitam.png";
+import logoWhite from "@/public/NusaBean Logo - Normal.svg";
+import logoBlack from "@/public/NusaBean Logo - Hitam.svg";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
