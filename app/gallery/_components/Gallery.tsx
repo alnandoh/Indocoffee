@@ -21,8 +21,16 @@ const galleryItems: GalleryItem[] = [
     alt: "Mount Sumbing image",
     title: "Mount Sumbing",
   },
-  { src: "/Arabica 1.webp", alt: "Arabica image 1", title: "Arabica Coffee" },
-  { src: "/Arabica 2.webp", alt: "ArabicaImage 2", title: "Arabica Coffee" },
+  {
+    src: "/Arabica 1.webp",
+    alt: "Arabica image 1",
+    title: "Arabica coffee farm",
+  },
+  {
+    src: "/Arabica 2.webp",
+    alt: "Arabica Image 2",
+    title: "Arabica coffee plant",
+  },
   {
     src: "/Gummy Bag Green Beans.webp",
     alt: "Gummy bag green beans image",
@@ -48,12 +56,23 @@ const Modal: React.FC<{
 
   useEffect(() => {
     if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
     }
     return () => {
       document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
     };
   }, [isOpen, handleEscape]);
 
@@ -99,7 +118,7 @@ const MobileFullscreenView: React.FC<{
   onPrev: () => void;
 }> = ({ item, onClose, onNext, onPrev }) => {
   return (
-    <div className="fixed inset-0 z-50 bg-black flex flex-col">
+    <div className="fixed inset-0 z-50 bg-black/85 flex flex-col">
       <div className="relative flex-grow flex items-center justify-center">
         <Image
           src={item.src}
