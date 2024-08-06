@@ -1,5 +1,5 @@
 import Image from "next/image";
-import hero from "@/public/Owner Photo.webp";
+import hero from "@/public/Hero.webp";
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
         priority
         quality={75}
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black/60 p-4 lg:p-8">
+      <div className="absolute inset-0 flex items-center justify-center bg-black/50 p-4 lg:p-8">
         <div className="container mx-auto px-4 lg:px-8 py-8 lg:py-16 flex flex-col md:items-center gap-6 text-stone-100">
           <h1 className="lg:max-w-3xl font-bold md:text-center leading-tight animate-fade-in">
             Discover the Essence <br />

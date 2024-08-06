@@ -201,35 +201,74 @@ const productData: Product[] = [
   },
 ];
 
-const CoffeeProductDisplay = () => {
+const varietyDescriptions: Record<string, string> = {
+  Arabica: `Temanggung Regency in Central Java is a major producer of tobacco and coffee beans. The region's unique intercropping with tobacco plants imparts a subtle tobacco aftertaste to the Arabica coffee, resulting in a distinctive flavor profile. Our Java Temanggung Arabica Green Coffee Beans are rich and complex, ideal for those seeking a unique coffee experience.
+
+Temanggung Arabica was highlighted as one of Indonesia's top specialty coffees at the SCAA Expo 2016 in Atlanta, with Indonesia honored as the Portrait Country, showcasing its rich coffee heritage and global recognition.`,
+  Robusta: `Temanggung Regency produces some of the finest organic Robusta coffee, known for its strong aroma and rich flavors with notes of chocolate, brown sugar, and spice. Our skilled farmers use advanced post-harvest techniques, including natural, honey, and wine processing, creating a standout coffee.
+
+Temanggung Robusta has earned international recognition, winning a bronze medal in 2018 and a gold medal in 2019 at the AVPA awards in Paris, showcasing the exceptional craftsmanship of its farmers.`,
+};
+
+const CoffeeProductDisplay: React.FC = () => {
+  const groupedProducts: Record<string, Product[]> = productData.reduce(
+    (acc, product) => {
+      const variety = product.name.split(" - ")[0];
+      if (!acc[variety]) {
+        acc[variety] = [];
+      }
+      acc[variety].push(product);
+      return acc;
+    },
+    {} as Record<string, Product[]>
+  );
+
   return (
     <section className="wrapper py-6 md:py-10 lg:py-16">
-      <div className="space-y-8">
-        {productData.map((product, index) => (
-          <ProductCard key={index} product={product} />
-        ))}
-      </div>
+      {Object.entries(groupedProducts).map(([variety, products]) => (
+        <div key={variety} className="mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-one-800 border-b-2 border-one-500 pb-2">
+            {variety} Coffee Products
+          </h2>
+          <div className="mb-6 whitespace-pre-line text-justify">
+            {varietyDescriptions[variety]}
+          </div>
+          <div className="space-y-8">
+            {products.map((product, index) => (
+              <ProductCard key={index} product={product} />
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 };
 
-const ProductCard = ({ product }: { product: Product }) => {
+interface ProductCardProps {
+  product: Product;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="bg-white shadow-light transition duration-200 ease-in hover:shadow-bold rounded-xl overflow-hidden flex flex-col sm:flex-row border border-slate-200">
-      <div className="relative w-full sm:w-1/3 h-48 sm:h-auto">
-        <Image
-          src={product.image}
-          alt={product.name}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-        />
+      <div className="w-full flex items-center justify-center sm:w-1/3 sm:h-auto">
+        <div className="relative w-80 h-80 rounded-full overflow-hidden">
+          <Image
+            src={product.image}
+            alt={product.name}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
       </div>
       <div className="p-4 sm:p-6 flex-1 flex flex-col">
         <div className="uppercase tracking-wide text-sm text-one-700 font-semibold">
           {product.process}
         </div>
-        <h2>{product.name}</h2>
+        <h3 className="text-xl font-semibold text-one-900 mt-1">
+          {product.name.split(" - ")[1]}
+        </h3>
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
           <ProductInfo
             icon={<MapPin className="w-4 h-4" />}
@@ -263,7 +302,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           />
         </div>
         <div className="mt-4">
-          <h3>Flavor Profile</h3>
+          <h4 className="font-semibold text-one-800">Flavor Profile</h4>
           <div className="mt-2 flex flex-wrap gap-2">
             {product.flavors.map((flavor, index) => (
               <span
@@ -280,15 +319,13 @@ const ProductCard = ({ product }: { product: Product }) => {
   );
 };
 
-const ProductInfo = ({
-  icon,
-  label,
-  value,
-}: {
+interface ProductInfoProps {
   icon: React.ReactNode;
   label: string;
   value: string;
-}) => (
+}
+
+const ProductInfo: React.FC<ProductInfoProps> = ({ icon, label, value }) => (
   <div className="flex items-center">
     {icon}
     <div className="ml-2">

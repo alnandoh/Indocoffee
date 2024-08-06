@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import FooterLogo from "@/public/NusaBean Logo - Hijau 2.svg";
+import FooterLogo from "@/public/NusaBean Logo - Normal.svg";
 
 export default function Footer() {
   return (
@@ -19,11 +19,8 @@ export default function Footer() {
             </div>
           </Link>
           <p className="text-sm">
-            NusaBean is a coffee producer, trader, and exporter based in
-            Semarang, Central Java, Indonesia. We support Indonesian coffee
-            farmers to live well by directly buy the coffee from them, and to
-            produce the highest quality of Indonesian coffee bean for local and
-            international market.
+            NusaBean Coffee supplies premium Indonesian green coffee beans,
+            supporting fair pricing and preserving heritage.
           </p>
         </div>
         <div className="space-y-4">
