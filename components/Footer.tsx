@@ -5,49 +5,82 @@ import FooterLogo from "@/public/NusaBean Logo - Normal.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-one-800 text-three">
-      <div className="wrapper py-4 md:py-8 lg:py-10 grid grid-cols-1 md:grid-cols-2  gap-6 justify-between">
-        <div className="flex flex-col gap-4">
-          <Link href="/" className="self-center lg:self-start">
-            <div className="relative w-32 h-20">
-              <Image
-                src={FooterLogo}
-                alt="Nusa Bean Logo"
-                className="object-contain"
-                fill
-              />
-            </div>
-          </Link>
-          <p className="text-sm">
-            NusaBean Coffee supplies premium Indonesian green coffee beans,
-            supporting fair pricing and preserving heritage.
-          </p>
-        </div>
-        <div className="space-y-4">
-          <p className="font-bold text-center md:text-left lg:ml-10 text-lg ">
-            Contact Us
-          </p>
-          <div className="flex flex-col gap-4">
-            <div className="flex gap-4 items-center">
-              <MapPin className="min-w-6 h-6 text-red-700" />
-              <p className="text-sm">
-                Jl. Brotojoyo No.4D 22, Kota Semarang, Jawa Tengah, Indonesia
-                50171
-              </p>
-            </div>
-            <div className="flex gap-4 items-center">
-              <Phone className="w-6 h-6 text-two-100" />
-              <p>+62 852-3222-6993</p>
-            </div>
-            <div className="flex gap-4 items-center">
-              <Mail className="w-6 h-6 text-two-500" />
-              <p>nusabean.coffee@gmail.com</p>
+    <footer className="bg-one-800 text-white">
+      <div className="container mx-auto py-8 px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="flex flex-col items-center md:items-start">
+            <Link href="/" className="mb-4">
+              <div className="relative w-40 h-24">
+                <Image
+                  src={FooterLogo}
+                  alt="Nusa Bean Logo"
+                  className="object-contain"
+                  fill
+                />
+              </div>
+            </Link>
+            <p className="text-center md:text-left text-sm">
+              NusaBean Coffee supplies premium Indonesian green coffee beans,
+              supporting fair pricing and preserving heritage.
+            </p>
+          </div>
+          {/* <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-blue-300 hover:underline">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-blue-300 hover:underline">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products"
+                  className="text-blue-300 hover:underline"
+                >
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-blue-300 hover:underline">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div> */}
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
+            <div className="space-y-4">
+              <div className="flex items-center">
+                <MapPin className="min-w-6 h-6 text-red-500 mr-3" />
+                <p className="text-sm">
+                  Jl. Brotojoyo No.4D 22, Semarang,
+                  <br />
+                  Jawa Tengah, Indonesia 50171
+                </p>
+              </div>
+              <div className="flex items-center">
+                <Phone className="min-w-6 h-6 text-green-500 mr-3" />
+                <p className="text-sm">(Whatsapp): +62 852-3222-6993</p>
+              </div>
+              <div className="flex items-center">
+                <Mail className="min-w-6 h-6 text-blue-500 mr-3" />
+                <p className="text-sm">nusabean.coffee@gmail.com</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center py-1 border-two-500 border-t">
-        <p className="font-medium">©2024 Indo Coffee</p>
+      <div className="bg-one-700 py-4">
+        <div className="container mx-auto text-center text-sm">
+          <p className="text-two-100">
+            ©2024 NusaBean Coffee. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

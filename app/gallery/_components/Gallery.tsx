@@ -12,9 +12,24 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   { src: "/Owner Photo.webp", alt: "Owner Photo", title: "Owner photo" },
   {
-    src: "/With Farmer.webp",
-    alt: "With farmer image 2",
-    title: "With farmer",
+    src: "/Ft Arabika 2.webp",
+    alt: "Arabica Image 2",
+    title: "Arabica Coffee",
+  },
+  {
+    src: "/Ft Arabika 3.webp",
+    alt: "Arabica Image 3",
+    title: "Arabica Coffee",
+  },
+  {
+    src: "/Ft Arabika 13.webp",
+    alt: "Arabica Image 13",
+    title: "Arabica Coffee",
+  },
+  {
+    src: "/Ft Arabika 14.webp",
+    alt: "Arabica Image 14",
+    title: "Arabica Coffee",
   },
   {
     src: "/Mount Sumbing.webp",
@@ -33,8 +48,8 @@ const galleryItems: GalleryItem[] = [
   },
   {
     src: "/Gummy Bag Green Beans.webp",
-    alt: "Gummy bag green beans image",
-    title: "Gummy bag green beans",
+    alt: "Gunny bag green beans image",
+    title: "Gunny bag green beans",
   },
 ];
 

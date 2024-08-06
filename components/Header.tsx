@@ -41,12 +41,12 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full h-[80px] z-10 transition-transform duration-300 ${
+      className={`sticky sm:fixed top-0 left-0 w-full h-[80px] z-10 transition duration-300 ${
         isVisible
           ? atTop
-            ? "bg-transparent text-white"
+            ? "bg-one-800 md:bg-transparent text-white"
             : "bg-three/30 backdrop-blur border-b border-black"
-          : "-translate-y-full bg-transparent"
+          : "-translate-y-full bg-transparent opacity-10"
       }`}
     >
       <div className="wrapper h-full flex justify-between items-center px-4">
@@ -73,21 +73,25 @@ export default function Header() {
           <Link href="/" className="nav-link">
             Home
           </Link>
+          <Link href="/about-us" className="nav-link">
+            About Us
+          </Link>
           <Link href="/products" className="nav-link">
             Products
           </Link>
           <Link href="/gallery" className="nav-link">
             Gallery
           </Link>
-          <Link href="/contact-us" className="nav-link">
-            Contact
-          </Link>
         </div>
 
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <button className="text-white p-2 rounded-md hover:bg-white/20 transition-colors">
+              <button
+                className={`p-2 rounded-md hover:bg-white/20 transition-colors ${
+                  atTop ? "text-white" : "text-black"
+                }`}
+              >
                 <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
@@ -99,6 +103,14 @@ export default function Header() {
                     className="text-lg font-semibold hover:text-gray-700"
                   >
                     Home
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/about-us"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
+                    About Us
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
@@ -115,14 +127,6 @@ export default function Header() {
                     className="text-lg font-semibold hover:text-gray-700"
                   >
                     Gallery
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/contact-us"
-                    className="text-lg font-semibold hover:text-gray-700"
-                  >
-                    Contact
                   </Link>
                 </SheetClose>
               </div>

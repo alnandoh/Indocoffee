@@ -13,7 +13,7 @@ export default function PageHeader({ img, title, subtitle }: PageHeaderProps) {
         <title>{title}</title>
         <meta name="description" content={title || subtitle} />
       </Head>
-      <section className="h-[40vh] relative bg-black/50">
+      <section className="h-[40vh] relative bg-black/70">
         <Image
           src={img}
           alt="Page Header Image"

@@ -227,7 +227,7 @@ const CoffeeProductDisplay: React.FC = () => {
     <section className="wrapper py-6 md:py-10 lg:py-16">
       {Object.entries(groupedProducts).map(([variety, products]) => (
         <div key={variety} className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-one-800 border-b-2 border-one-500 pb-2">
+          <h2 className="mb-4 text-one-800 border-b-2 border-one-600 pb-2">
             {variety} Coffee Products
           </h2>
           <div className="mb-6 whitespace-pre-line text-justify">
@@ -259,16 +259,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
+            className="scale-110"
           />
         </div>
       </div>
       <div className="p-4 sm:p-6 flex-1 flex flex-col">
-        <div className="uppercase tracking-wide text-sm text-one-700 font-semibold">
-          {product.process}
-        </div>
-        <h3 className="text-xl font-semibold text-one-900 mt-1">
+        <h3 className="font-bold text-one-800 mt-1">
           {product.name.split(" - ")[1]}
         </h3>
+        <div className="md:text-xl uppercase tracking-wide text-xs text-one-700 font-semibold">
+          {product.process}
+        </div>
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
           <ProductInfo
             icon={<MapPin className="w-4 h-4" />}
@@ -330,7 +331,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ icon, label, value }) => (
     {icon}
     <div className="ml-2">
       <div className="text-xs text-gray-500">{label}</div>
-      <div className="text-xs sm:text-sm font-medium text-gray-900">
+      <div className="text-xs sm:text-sm lg:text-base font-medium text-gray-900">
         {value}
       </div>
     </div>
