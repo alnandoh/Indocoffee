@@ -27,7 +27,7 @@ const galleryItems: GalleryItem[] = [
     title: "Arabica Coffee Farm",
   },
   {
-    src: "/Sun Drying.webp",
+    src: "/Sun drying.webp",
     alt: "Arabica Image 3",
     title: "Coffee Sun Drying",
   },
@@ -47,7 +47,7 @@ const galleryItems: GalleryItem[] = [
     title: "Gunny Bag Green Beans",
   },
   {
-    src: "/Ft Arabika 14.webp",
+    src: "/Ft arabika 14.webp",
     alt: "Arabica Image 14",
     title: "Arabica Coffee Plantation",
   },
