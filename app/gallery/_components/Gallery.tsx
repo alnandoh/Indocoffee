@@ -13,27 +13,27 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     src: "/Arabica 2.webp",
-    alt: "Arabica Coffee Tree Image",
+    alt: "Arabica Coffee Tree",
     title: "Arabica Coffee Tree",
   },
   {
     src: "/Robusta coffee tree.webp",
-    alt: "Robusta Coffee Tree Image",
+    alt: "Robusta Coffee Tree",
     title: "Robusta Coffee Tree",
   },
   {
     src: "/Arabica 1.webp",
-    alt: "Arabica image 1",
+    alt: "Arabica Coffee Farm",
     title: "Arabica Coffee Farm",
   },
   {
     src: "/Sun drying.webp",
-    alt: "Arabica Image 3",
+    alt: "Coffee Sun Drying",
     title: "Coffee Sun Drying",
   },
   {
     src: "/Ft penjemuran.webp",
-    alt: "Drying Coffee Image",
+    alt: "Solar Dryier Dome",
     title: "Solar Dryer Dome",
   },
   {
@@ -43,17 +43,17 @@ const galleryItems: GalleryItem[] = [
   },
   {
     src: "/Gummy Bag Green Beans.webp",
-    alt: "Gunny Bag Green Beans Image",
+    alt: "Gunny Bag Green Beans",
     title: "Gunny Bag Green Beans",
   },
   {
     src: "/Ft arabika 14.webp",
-    alt: "Arabica Image 14",
+    alt: "Arabica Coffee Plantation",
     title: "Arabica Coffee Plantation",
   },
   {
     src: "/Mount Sumbing.webp",
-    alt: "Mount Sumbing image",
+    alt: "Mount Sumbing",
     title: "Mount Sumbing",
   },
 ];
@@ -209,7 +209,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="wrapper md:p-6">
+    <div className="wrapper py-6 md:p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {galleryItems.map((item, index) => (
           <motion.div
