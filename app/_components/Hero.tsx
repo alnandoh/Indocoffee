@@ -19,7 +19,7 @@ export default function Hero() {
             of Indonesian Coffee
           </h1>
           <div className="max-w-xl lg:max-w-3xl text-base md:text-lg md:mt-4">
-            <p className="animate-fade-in">
+            <p className="text-justify animate-fade-in">
               At NusaBean Coffee, we are dedicated to working hand-in-hand with
               local farmers to bring you the finest Indonesian green coffee
               beans. The skilled farmers of Indonesia excel in cultivating

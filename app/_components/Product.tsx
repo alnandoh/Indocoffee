@@ -18,7 +18,7 @@ export default function Product() {
           <h3 className="text-xl font-semibold animate-fade-in">
             Java Temanggung Arabica Green Coffee Beans
           </h3>
-          <p>
+          <p className="text-justify">
             Temanggung Regency, located in Central Java Province, is renowned as
             one of the largest producers of tobacco and coffee beans. The
             Arabica coffee plantations in Temanggung are particularly unique due
@@ -44,7 +44,7 @@ export default function Product() {
           <h3 className="text-xl font-semibold animate-fade-in">
             Java Temanggung Robusta Green Coffee Beans
           </h3>
-          <p>
+          <p className="text-justify">
             Temanggung Regency is home to some of the finest Robusta coffee,
             cultivated organically to ensure the highest quality. Our Java
             Temanggung Robusta Green Coffee Beans are celebrated for their

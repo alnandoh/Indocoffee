@@ -72,11 +72,17 @@ export default function Header() {
           <Link href="/" className="nav-link">
             Home
           </Link>
+          <Link href="/#about-us" className="nav-link">
+            About Us
+          </Link>
           <Link href="/products" className="nav-link">
             Products
           </Link>
           <Link href="/gallery" className="nav-link">
             Gallery
+          </Link>
+          <Link href="#contact-us" className="nav-link">
+            Contact Us
           </Link>
         </div>
 
@@ -103,6 +109,14 @@ export default function Header() {
                 </SheetClose>
                 <SheetClose asChild>
                   <Link
+                    href="/#about-us"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
+                    About Us
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
                     href="/products"
                     className="text-lg font-semibold hover:text-gray-700"
                   >
@@ -115,6 +129,14 @@ export default function Header() {
                     className="text-lg font-semibold hover:text-gray-700"
                   >
                     Gallery
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="#contact-us"
+                    className="text-lg font-semibold hover:text-gray-700"
+                  >
+                    Contact Us
                   </Link>
                 </SheetClose>
               </div>

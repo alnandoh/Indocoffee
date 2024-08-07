@@ -21,7 +21,7 @@ export default function PageHeader({ img, title, subtitle }: PageHeaderProps) {
           className="object-cover -z-10"
         />
         <div className="wrapper h-full flex flex-col justify-center items-center text-center text-white gap-6">
-          <h1>{title}</h1>
+          <h1 className="md:pt-10">{title}</h1>
           <p className="text-base lg:text-lg">{subtitle}</p>
         </div>
       </section>
