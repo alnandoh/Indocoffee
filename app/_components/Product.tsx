@@ -5,9 +5,7 @@ import Robusta from "@/public/Robusta G1.webp";
 export default function Product() {
   return (
     <section className="wrapper py-16 min-h-screen flex flex-col gap-8 justify-center">
-      <h2 className="text-center text-3xl font-bold animate-fade-in">
-        Our Green Coffee Beans
-      </h2>
+      <h2 className="text-center animate-fade-in">Our Green Coffee Beans</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center animate-fade-in">
         <div className="order-1 md:order-1 relative rounded-lg lg:rounded-xl overflow-hidden">
           <Image
