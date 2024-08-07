@@ -7,7 +7,7 @@ export default function page() {
   return (
     <div className="min-h-screen ">
       <PageHeader img={hero} title={"Our Gallery"} />
-      <main className="p-6">
+      <main className="p-2 md:p-6">
         <Gallery />
       </main>
     </div>

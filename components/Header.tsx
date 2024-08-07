@@ -27,7 +27,6 @@ export default function Header() {
     }
     setLastScrollY(currentScrollY);
 
-    // Update atTop state
     setAtTop(currentScrollY === 0);
   };
 
@@ -73,9 +72,6 @@ export default function Header() {
           <Link href="/" className="nav-link">
             Home
           </Link>
-          <Link href="/about-us" className="nav-link">
-            About Us
-          </Link>
           <Link href="/products" className="nav-link">
             Products
           </Link>
@@ -103,14 +99,6 @@ export default function Header() {
                     className="text-lg font-semibold hover:text-gray-700"
                   >
                     Home
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/about-us"
-                    className="text-lg font-semibold hover:text-gray-700"
-                  >
-                    About Us
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>

@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface GalleryItem {
   src: string;
@@ -10,46 +11,50 @@ interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-  { src: "/Owner Photo.webp", alt: "Owner Photo", title: "Owner photo" },
   {
-    src: "/Ft Arabika 2.webp",
-    alt: "Arabica Image 2",
-    title: "Arabica Coffee",
+    src: "/Arabica 2.webp",
+    alt: "Arabica Coffee Tree Image",
+    title: "Arabica Coffee Tree",
   },
   {
-    src: "/Ft Arabika 3.webp",
+    src: "/Robusta coffee tree.webp",
+    alt: "Robusta Coffee Tree Image",
+    title: "Robusta Coffee Tree",
+  },
+  {
+    src: "/Arabica 1.webp",
+    alt: "Arabica image 1",
+    title: "Arabica Coffee Farm",
+  },
+  {
+    src: "/Sun Drying.webp",
     alt: "Arabica Image 3",
-    title: "Arabica Coffee",
+    title: "Coffee Sun Drying",
   },
   {
-    src: "/Ft Arabika 13.webp",
-    alt: "Arabica Image 13",
-    title: "Arabica Coffee",
+    src: "/Ft penjemuran.webp",
+    alt: "Drying Coffee Image",
+    title: "Solar Dryer Dome",
+  },
+  {
+    src: "/Robusta Green Bean.webp",
+    alt: "Robusta Green Bean",
+    title: "Robusta Green Bean",
+  },
+  {
+    src: "/Gummy Bag Green Beans.webp",
+    alt: "Gunny Bag Green Beans Image",
+    title: "Gunny Bag Green Beans",
   },
   {
     src: "/Ft Arabika 14.webp",
     alt: "Arabica Image 14",
-    title: "Arabica Coffee",
+    title: "Arabica Coffee Plantation",
   },
   {
     src: "/Mount Sumbing.webp",
     alt: "Mount Sumbing image",
     title: "Mount Sumbing",
-  },
-  {
-    src: "/Arabica 1.webp",
-    alt: "Arabica image 1",
-    title: "Arabica coffee farm",
-  },
-  {
-    src: "/Arabica 2.webp",
-    alt: "Arabica Image 2",
-    title: "Arabica coffee plant",
-  },
-  {
-    src: "/Gummy Bag Green Beans.webp",
-    alt: "Gunny bag green beans image",
-    title: "Gunny bag green beans",
   },
 ];
 
@@ -59,7 +64,8 @@ const Modal: React.FC<{
   onNext: () => void;
   onPrev: () => void;
   children: React.ReactNode;
-}> = ({ isOpen, onClose, children, onNext, onPrev }) => {
+  layoutId: string;
+}> = ({ isOpen, onClose, children, onNext, onPrev, layoutId }) => {
   const handleEscape = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -94,13 +100,17 @@ const Modal: React.FC<{
   if (!isOpen) return null;
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75"
     >
-      <div
+      <motion.div
+        layoutId={layoutId}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-[85vw] w-full max-h-[85vh] bg-white rounded-lg shadow-xl overflow-hidden"
+        className="relative w-full h-full max-w-[85vw] max-h-[85vh] rounded-lg shadow-xl overflow-hidden flex items-center justify-center"
       >
         <button
           onClick={onClose}
@@ -121,8 +131,8 @@ const Modal: React.FC<{
           <ChevronRight size={24} />
         </button>
         {children}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -165,6 +175,7 @@ const MobileFullscreenView: React.FC<{
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -174,39 +185,38 @@ const Gallery: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const openModal = (item: GalleryItem) => {
+  const openModal = (item: GalleryItem, index: number) => {
     setSelectedImage(item);
+    setSelectedIndex(index);
   };
 
   const closeModal = () => {
     setSelectedImage(null);
+    setSelectedIndex(null);
   };
 
   const nextImage = () => {
-    const currentIndex = galleryItems.findIndex(
-      (item) => item.src === selectedImage?.src
-    );
-    const nextIndex = (currentIndex + 1) % galleryItems.length;
+    const nextIndex = (selectedIndex! + 1) % galleryItems.length;
     setSelectedImage(galleryItems[nextIndex]);
+    setSelectedIndex(nextIndex);
   };
 
   const prevImage = () => {
-    const currentIndex = galleryItems.findIndex(
-      (item) => item.src === selectedImage?.src
-    );
     const prevIndex =
-      (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      (selectedIndex! - 1 + galleryItems.length) % galleryItems.length;
     setSelectedImage(galleryItems[prevIndex]);
+    setSelectedIndex(prevIndex);
   };
 
   return (
-    <div className="wrapper p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="wrapper md:p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {galleryItems.map((item, index) => (
-          <div
+          <motion.div
             key={index}
+            layoutId={`gallery-item-${index}`}
             className="shadow-lg rounded-xl overflow-hidden relative cursor-pointer"
-            onClick={() => openModal(item)}
+            onClick={() => openModal(item, index)}
           >
             <div className="relative h-80">
               <Image
@@ -219,38 +229,36 @@ const Gallery: React.FC = () => {
             <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
               <h3 className="text-lg font-semibold">{item.title}</h3>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      {!isMobile && (
-        <Modal
-          isOpen={selectedImage !== null}
-          onClose={closeModal}
-          onNext={nextImage}
-          onPrev={prevImage}
-        >
-          {selectedImage && (
-            <>
-              <div className="relative w-full h-full">
-                <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                  layout="responsive"
-                  width={1920}
-                  height={1080}
-                  objectFit="contain"
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-4">
-                <h3 className="text-xl text-center font-semibold">
-                  {selectedImage.title}
-                </h3>
-              </div>
-            </>
-          )}
-        </Modal>
-      )}
+      <AnimatePresence>
+        {!isMobile && selectedImage && (
+          <Modal
+            isOpen={selectedImage !== null}
+            onClose={closeModal}
+            onNext={nextImage}
+            onPrev={prevImage}
+            layoutId={`gallery-item-${selectedIndex}`}
+          >
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-4">
+              <h3 className="text-xl text-center font-semibold">
+                {selectedImage.title}
+              </h3>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
 
       {isMobile && selectedImage && (
         <MobileFullscreenView

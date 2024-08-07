@@ -25,15 +25,15 @@ interface Product {
 
 const productData: Product[] = [
   {
-    name: "Robusta - Java Temanggung Extended Natural (Wine)",
-    image: "/Robusta Wine.webp",
-    process: "Extended Natural (Wine)",
+    name: "Robusta - Robusta Grade 1 Java Temanggung",
+    image: "/Robusta G1.webp",
+    process: "Dry",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
-    harvest: "100% red cherry",
+    harvest: "80% red cherry",
     moisture: "12%",
     size: "13/19",
-    defect: "Max 8%",
+    defect: "Max 11%",
     flavors: [
       "Bold body",
       "Strong Aroma",
@@ -41,19 +41,18 @@ const productData: Product[] = [
       "Caramel",
       "Spicy",
       "Brown Sugar",
-      "Winey",
     ],
   },
   {
-    name: "Robusta - Java Temanggung Natural",
-    image: "/Robusta Natural.webp",
-    process: "Natural",
+    name: "Robusta - Robusta Fine Java Temanggung",
+    image: "/Robusta Fine.webp",
+    process: "Dry",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "800-900 MASL",
     harvest: "100% red cherry",
     moisture: "12%",
     size: "13/19",
-    defect: "Max 8%",
+    defect: "3-8%",
     flavors: [
       "Bold body",
       "Strong Aroma",
@@ -61,11 +60,10 @@ const productData: Product[] = [
       "Caramel",
       "Spicy",
       "Brown Sugar",
-      "Fruity",
     ],
   },
   {
-    name: "Robusta - Java Temanggung Honey",
+    name: "Robusta - Robusta Honey Java Temanggung",
     image: "/Robusta Honey.webp",
     process: "Honey",
     origin: "Temanggung, Central Java, Indonesia",
@@ -73,7 +71,7 @@ const productData: Product[] = [
     harvest: "100% red cherry",
     moisture: "12%",
     size: "13/19",
-    defect: "Max 8%",
+    defect: "3-8%",
     flavors: [
       "Bold body",
       "Strong Aroma",
@@ -85,26 +83,67 @@ const productData: Product[] = [
     ],
   },
   {
-    name: "Arabica - Java Temanggung Wine",
-    image: "/Arabika - Wine.webp",
-    process: "Wine",
+    name: "Robusta - Robusta Natural Java Temanggung",
+    image: "/Robusta Natural.webp",
+    process: "Natural",
+    origin: "Temanggung, Central Java, Indonesia",
+    altitude: "800-900 MASL",
+    harvest: "100% red cherry",
+    moisture: "12%",
+    size: "13/19",
+    defect: "3-8%",
+    flavors: [
+      "Bold body",
+      "Strong Aroma",
+      "Chocolate",
+      "Caramel",
+      "Spicy",
+      "Brown Sugar",
+      "Fruity",
+    ],
+  },
+  {
+    name: "Robusta - Robusta Extended Natural (Wine) Java Temanggung ",
+    image: "/Robusta Wine.webp",
+    process: "Extended Natural (Wine)",
+    origin: "Temanggung, Central Java, Indonesia",
+    altitude: "800-900 MASL",
+    harvest: "100% red cherry",
+    moisture: "12%",
+    size: "13/19",
+    defect: "3-8%",
+    flavors: [
+      "Bold body",
+      "Strong Aroma",
+      "Chocolate",
+      "Caramel",
+      "Spicy",
+      "Brown Sugar",
+      "Winey",
+    ],
+  },
+
+  {
+    name: "Arabica - Arabica Grade 1 Full Wash Java Temanggung ",
+    image: "/Arabika G1 - Full Wash.webp",
+    process: "Full Wash",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "1500-1800 MASL",
     harvest: "100% red cherry",
     moisture: "12%",
     size: "15/16",
-    defect: "Under 11%",
+    defect: "Max 11%",
     flavors: [
       "Medium body",
-      "Strawberry",
-      "Orange",
-      "Star Fruit",
-      "Tropical Fruit",
-      "Berries",
+      "Lemon & Lime",
+      "Caramel",
+      "Chocolate",
+      "Hazelnut",
     ],
   },
+
   {
-    name: "Arabica - Java Temanggung Natural",
+    name: "Arabica - Arabica Natural Java Temanggung",
     image: "/Arabika - Natural.webp",
     process: "Natural",
     origin: "Temanggung, Central Java, Indonesia",
@@ -112,7 +151,7 @@ const productData: Product[] = [
     harvest: "100% red cherry",
     moisture: "12%",
     size: "15/16",
-    defect: "Under 11%",
+    defect: "3-8%",
     flavors: [
       "Medium body",
       "Melon",
@@ -124,7 +163,7 @@ const productData: Product[] = [
     ],
   },
   {
-    name: "Arabica - Java Temanggung Honey",
+    name: "Arabica - Arabica Honey Java Temanggung",
     image: "/Arabika Honey 1.webp",
     process: "Honey",
     origin: "Temanggung, Central Java, Indonesia",
@@ -132,7 +171,7 @@ const productData: Product[] = [
     harvest: "100% red cherry",
     moisture: "12%",
     size: "15/16",
-    defect: "Under 11%",
+    defect: "3-8%",
     flavors: [
       "Medium body",
       "Berry",
@@ -144,69 +183,30 @@ const productData: Product[] = [
     ],
   },
   {
-    name: "Arabica - Java Temanggung Grade 1 Full Wash",
-    image: "/Arabika G1 - Full Wash.webp",
-    process: "Full Wash",
+    name: "Arabica - Arabica Wine Java Temanggung",
+    image: "/Arabika Wine 1.webp",
+    process: "Wine",
     origin: "Temanggung, Central Java, Indonesia",
     altitude: "1500-1800 MASL",
     harvest: "100% red cherry",
     moisture: "12%",
     size: "15/16",
-    defect: "Under 11%",
+    defect: "3-8%",
     flavors: [
       "Medium body",
-      "Lemon & Lime",
-      "Caramel",
-      "Chocolate",
-      "Hazelnut",
-    ],
-  },
-  {
-    name: "Robusta - Java Temanggung Fine",
-    image: "/Robusta Green Bean.webp",
-    process: "Dry",
-    origin: "Temanggung, Central Java, Indonesia",
-    altitude: "800-900 MASL",
-    harvest: "100% red cherry",
-    moisture: "12%",
-    size: "13/19",
-    defect: "Max 8%",
-    flavors: [
-      "Bold body",
-      "Strong Aroma",
-      "Chocolate",
-      "Caramel",
-      "Spicy",
-      "Brown Sugar",
-    ],
-  },
-  {
-    name: "Robusta - Java Temanggung Grade 1",
-    image: "/Robusta G1.webp",
-    process: "Dry",
-    origin: "Temanggung, Central Java, Indonesia",
-    altitude: "800-900 MASL",
-    harvest: "80% red cherry",
-    moisture: "12%",
-    size: "13/19",
-    defect: "Under 11%",
-    flavors: [
-      "Bold body",
-      "Strong Aroma",
-      "Chocolate",
-      "Caramel",
-      "Spicy",
-      "Brown Sugar",
+      "Strawberry",
+      "Orange",
+      "Star Fruit",
+      "Tropical Fruit",
+      "Berries",
     ],
   },
 ];
 
 const varietyDescriptions: Record<string, string> = {
   Arabica: `Temanggung Regency in Central Java is a major producer of tobacco and coffee beans. The region's unique intercropping with tobacco plants imparts a subtle tobacco aftertaste to the Arabica coffee, resulting in a distinctive flavor profile. Our Java Temanggung Arabica Green Coffee Beans are rich and complex, ideal for those seeking a unique coffee experience.
-
 Temanggung Arabica was highlighted as one of Indonesia's top specialty coffees at the SCAA Expo 2016 in Atlanta, with Indonesia honored as the Portrait Country, showcasing its rich coffee heritage and global recognition.`,
   Robusta: `Temanggung Regency produces some of the finest organic Robusta coffee, known for its strong aroma and rich flavors with notes of chocolate, brown sugar, and spice. Our skilled farmers use advanced post-harvest techniques, including natural, honey, and wine processing, creating a standout coffee.
-
 Temanggung Robusta has earned international recognition, winning a bronze medal in 2018 and a gold medal in 2019 at the AVPA awards in Paris, showcasing the exceptional craftsmanship of its farmers.`,
 };
 
@@ -249,6 +249,11 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const formatProductName = (name: string) => {
+    const [variety, details] = name.split(" - ");
+    const type = details.replace(" Java Temanggung", "");
+    return `${type} - Java Temanggung`;
+  };
   return (
     <div className="bg-white shadow-light transition duration-200 ease-in hover:shadow-bold rounded-xl overflow-hidden flex flex-col sm:flex-row border border-slate-200">
       <div className="w-full flex items-center justify-center sm:w-1/3 sm:h-auto">
@@ -259,13 +264,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            className="scale-110"
+            className="scale-125"
           />
         </div>
       </div>
       <div className="p-4 sm:p-6 flex-1 flex flex-col">
         <h3 className="font-bold text-one-800 mt-1">
-          {product.name.split(" - ")[1]}
+          {formatProductName(product.name)}
         </h3>
         <div className="md:text-xl uppercase tracking-wide text-xs text-one-700 font-semibold">
           {product.process}

@@ -6,7 +6,6 @@ import {
   Phone,
   Youtube,
 } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 
 export default function ContactInfo() {
@@ -48,15 +47,15 @@ export default function ContactInfo() {
             our other social media:
           </p>
           <div className="flex items-center gap-4">
-            <Link href="www.instagram.com">
+            <a href="www.instagram.com">
               <Instagram className="w-8 h-8 transition duration-200 ease-in-out hover:scale-105" />
-            </Link>
-            <Link href="www.facebook.com">
+            </a>
+            <a href="www.facebook.com">
               <Facebook className="w-8 h-8 transition duration-200 ease-in-out hover:scale-105" />
-            </Link>
-            <Link href="www.instagram.com">
+            </a>
+            <a href="www.instagram.com">
               <Youtube className="w-8 h-8 transition duration-200 ease-in-out hover:scale-105" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
