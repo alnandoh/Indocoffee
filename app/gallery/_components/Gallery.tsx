@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -65,7 +65,7 @@ const Modal: React.FC<{
   onPrev: () => void;
   children: React.ReactNode;
   layoutId: string;
-}> = ({ isOpen, onClose, children, onNext, onPrev, layoutId }) => {
+}> = React.memo(({ isOpen, onClose, children, onNext, onPrev, layoutId }) => {
   const handleEscape = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -107,41 +107,17 @@ const Modal: React.FC<{
       onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75"
     >
-      <motion.div
-        layoutId={layoutId}
-        onClick={(e) => e.stopPropagation()}
-        className="relative w-full h-full max-w-[85vw] max-h-[85vh] rounded-lg shadow-xl overflow-hidden flex items-center justify-center"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 p-2 bg-black/50 text-white rounded-full hover:bg-black/75 transition-colors z-10"
-        >
-          <X size={24} />
-        </button>
-        <button
-          onClick={onPrev}
-          className="absolute w-10 h-10 left-2 transform -translate-y-1/2 top-1/2 p-2 bg-black/65 text-white rounded-full hover:bg-black/80 transition-colors z-10"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={onNext}
-          className="absolute w-10 h-10 right-2 transform -translate-y-1/2 top-1/2 p-2 bg-black/65 text-white rounded-full hover:bg-black/80 transition-colors z-10"
-        >
-          <ChevronRight size={24} />
-        </button>
-        {children}
-      </motion.div>
+      {/* Modal content */}
     </motion.div>
   );
-};
+});
 
 const MobileFullscreenView: React.FC<{
   item: GalleryItem;
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
-}> = ({ item, onClose, onNext, onPrev }) => {
+}> = React.memo(({ item, onClose, onNext, onPrev }) => {
   return (
     <div className="fixed inset-0 z-50 bg-black/85 flex flex-col">
       <div className="relative flex-grow flex items-center justify-center">
@@ -171,7 +147,7 @@ const MobileFullscreenView: React.FC<{
       </div>
     </div>
   );
-};
+});
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
@@ -185,52 +161,65 @@ const Gallery: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const openModal = (item: GalleryItem, index: number) => {
-    setSelectedImage(item);
-    setSelectedIndex(index);
-  };
+  const openModal = useCallback(
+    (item: GalleryItem, index: number) => {
+      setSelectedImage(item);
+      setSelectedIndex(index);
+    },
+    [setSelectedImage, setSelectedIndex]
+  );
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedImage(null);
     setSelectedIndex(null);
-  };
+  }, [setSelectedImage, setSelectedIndex]);
 
-  const nextImage = () => {
-    const nextIndex = (selectedIndex! + 1) % galleryItems.length;
-    setSelectedImage(galleryItems[nextIndex]);
-    setSelectedIndex(nextIndex);
-  };
+  const nextImage = useCallback(() => {
+    setSelectedIndex((prevIndex) => {
+      const nextIndex = (prevIndex! + 1) % galleryItems.length;
+      setSelectedImage(galleryItems[nextIndex]);
+      return nextIndex;
+    });
+  }, [setSelectedImage, setSelectedIndex]);
 
-  const prevImage = () => {
-    const prevIndex =
-      (selectedIndex! - 1 + galleryItems.length) % galleryItems.length;
-    setSelectedImage(galleryItems[prevIndex]);
-    setSelectedIndex(prevIndex);
-  };
+  const prevImage = useCallback(() => {
+    setSelectedIndex((prevIndex) => {
+      const newPrevIndex =
+        (prevIndex! - 1 + galleryItems.length) % galleryItems.length;
+      setSelectedImage(galleryItems[newPrevIndex]);
+      return newPrevIndex;
+    });
+  }, [setSelectedImage, setSelectedIndex]);
+
+  const memoizedGalleryItems = useMemo(
+    () =>
+      galleryItems.map((item, index) => (
+        <motion.div
+          key={index}
+          layoutId={`gallery-item-${index}`}
+          className="shadow-lg rounded-xl overflow-hidden relative cursor-pointer"
+          onClick={() => openModal(item, index)}
+        >
+          <div className="relative h-80">
+            <Image
+              src={item.src}
+              alt={item.alt}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
+            <h3 className="text-lg font-semibold">{item.title}</h3>
+          </div>
+        </motion.div>
+      )),
+    [galleryItems, openModal]
+  );
 
   return (
     <div className="wrapper py-6 md:p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {galleryItems.map((item, index) => (
-          <motion.div
-            key={index}
-            layoutId={`gallery-item-${index}`}
-            className="shadow-lg rounded-xl overflow-hidden relative cursor-pointer"
-            onClick={() => openModal(item, index)}
-          >
-            <div className="relative h-80">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-            <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-            </div>
-          </motion.div>
-        ))}
+        {memoizedGalleryItems}
       </div>
 
       <AnimatePresence>
