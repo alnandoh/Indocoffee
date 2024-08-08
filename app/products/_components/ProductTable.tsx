@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import {
   Coffee,
@@ -211,17 +211,16 @@ Temanggung Robusta has earned international recognition, winning a bronze medal 
 };
 
 const CoffeeProductDisplay: React.FC = () => {
-  const groupedProducts: Record<string, Product[]> = productData.reduce(
-    (acc, product) => {
+  const groupedProducts: Record<string, Product[]> = useMemo(() => {
+    return productData.reduce((acc, product) => {
       const variety = product.name.split(" - ")[0];
       if (!acc[variety]) {
         acc[variety] = [];
       }
       acc[variety].push(product);
       return acc;
-    },
-    {} as Record<string, Product[]>
-  );
+    }, {} as Record<string, Product[]>);
+  }, [productData]);
 
   return (
     <section className="wrapper py-6 md:py-10 lg:py-16">
@@ -244,16 +243,13 @@ const CoffeeProductDisplay: React.FC = () => {
   );
 };
 
-interface ProductCardProps {
-  product: Product;
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const formatProductName = (name: string) => {
-    const [variety, details] = name.split(" - ");
+const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
+  const formatProductName = useMemo(() => {
+    const [variety, details] = product.name.split(" - ");
     const type = details.replace(" Java Temanggung", "");
     return `${type} - Java Temanggung`;
-  };
+  }, [product.name]);
+
   return (
     <div className="bg-white shadow-light transition duration-200 ease-in hover:shadow-bold rounded-xl overflow-hidden flex flex-col sm:flex-row border border-slate-200">
       <div className="w-full flex items-center justify-center sm:w-1/3 sm:h-auto">
@@ -269,43 +265,45 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </div>
       <div className="p-4 sm:p-6 flex-1 flex flex-col">
-        <h3 className="font-bold text-one-800 mt-1">
-          {formatProductName(product.name)}
-        </h3>
+        <h3 className="font-bold text-one-800 mt-1">{formatProductName}</h3>
         <div className="md:text-xl uppercase tracking-wide text-xs text-one-700 font-semibold">
           {product.process}
         </div>
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <ProductInfo
-            icon={<MapPin className="w-4 h-4" />}
-            label="Origin"
-            value={product.origin}
-          />
-          <ProductInfo
-            icon={<Mountain className="w-4 h-4" />}
-            label="Altitude"
-            value={product.altitude}
-          />
-          <ProductInfo
-            icon={<Calendar className="w-4 h-4" />}
-            label="Harvest"
-            value={product.harvest}
-          />
-          <ProductInfo
-            icon={<Droplet className="w-4 h-4" />}
-            label="Moisture"
-            value={product.moisture}
-          />
-          <ProductInfo
-            icon={<Layers className="w-4 h-4" />}
-            label="Size"
-            value={product.size}
-          />
-          <ProductInfo
-            icon={<XCircle className="w-4 h-4" />}
-            label="Defect"
-            value={product.defect}
-          />
+          {[
+            {
+              icon: <MapPin className="w-4 h-4" />,
+              label: "Origin",
+              value: product.origin,
+            },
+            {
+              icon: <Mountain className="w-4 h-4" />,
+              label: "Altitude",
+              value: product.altitude,
+            },
+            {
+              icon: <Calendar className="w-4 h-4" />,
+              label: "Harvest",
+              value: product.harvest,
+            },
+            {
+              icon: <Droplet className="w-4 h-4" />,
+              label: "Moisture",
+              value: product.moisture,
+            },
+            {
+              icon: <Layers className="w-4 h-4" />,
+              label: "Size",
+              value: product.size,
+            },
+            {
+              icon: <XCircle className="w-4 h-4" />,
+              label: "Defect",
+              value: product.defect,
+            },
+          ].map((info, index) => (
+            <ProductInfo key={index} {...info} />
+          ))}
         </div>
         <div className="mt-4">
           <h4 className="font-semibold text-one-800">Flavor Profile</h4>
@@ -325,13 +323,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   );
 };
 
-interface ProductInfoProps {
+const ProductInfo: React.FC<{
   icon: React.ReactNode;
   label: string;
   value: string;
-}
-
-const ProductInfo: React.FC<ProductInfoProps> = ({ icon, label, value }) => (
+}> = ({ icon, label, value }) => (
   <div className="flex items-center">
     {icon}
     <div className="ml-2">
