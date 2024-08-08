@@ -226,7 +226,7 @@ const CoffeeProductDisplay: React.FC = () => {
   return (
     <section className="wrapper py-6 md:py-10 lg:py-16">
       {Object.entries(groupedProducts).map(([variety, products]) => (
-        <div key={variety} className="mb-12">
+        <div key={variety} className="mb-12" id={variety}>
           <h2 className="mb-4 text-one-800 border-b-2 border-one-600 pb-2">
             {variety} Coffee Products
           </h2>

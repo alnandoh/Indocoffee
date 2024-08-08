@@ -1,24 +1,29 @@
 import Image from "next/image";
 import Arabica from "@/public/Arabika - Natural.webp";
 import Robusta from "@/public/Robusta G1.webp";
+import Link from "next/link";
 
 export default function Product() {
   return (
     <section className="wrapper py-16 min-h-screen flex flex-col gap-8 justify-center">
-      <h2 className="text-center animate-fade-in">Our Green Coffee Beans</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center animate-fade-in">
-        <div className="order-1 md:order-1 relative rounded-lg lg:rounded-xl overflow-hidden">
+      <h2 className="text-center animate-fade-in text-3xl font-bold">
+        Our Green Coffee Beans
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate-fade-in">
+        <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg lg:rounded-xl overflow-hidden">
           <Image
             src={Arabica}
             alt="Java Temanggung Arabica Coffee Beans"
-            className="object-contain transition duration-300 ease-in hover:scale-105"
+            className="transition-transform duration-300 ease-in-out hover:scale-105"
+            layout="fill"
+            objectFit="cover"
           />
         </div>
-        <div className="order-2 md:order-2 space-y-2 lg:space-y-4">
-          <h3 className="text-xl font-semibold animate-fade-in">
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">
             Java Temanggung Arabica Green Coffee Beans
           </h3>
-          <p className="text-justify">
+          <p className="text-justify text-gray-700">
             Temanggung Regency, located in Central Java Province, is renowned as
             one of the largest producers of tobacco and coffee beans. The
             Arabica coffee plantations in Temanggung are particularly unique due
@@ -32,19 +37,26 @@ export default function Product() {
             taste, making them a perfect choice for coffee connoisseurs seeking
             a unique experience.
           </p>
+          <Link href="/products#Arabica" passHref>
+            <div className="p-4 mt-4 rounded-xl text-center text-white bg-one-800 hover:bg-one-800/90 cursor-pointer transform duration-300">
+              Check our product
+            </div>
+          </Link>
         </div>
-        <div className="order-3 md:order-4 relative rounded-lg lg:rounded-xl overflow-hidden">
+        <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg lg:rounded-xl overflow-hidden">
           <Image
             src={Robusta}
             alt="Java Temanggung Robusta Coffee Beans"
-            className="object-cover transition duration-300 ease-in hover:scale-105"
+            className="transition-transform duration-300 ease-in-out hover:scale-105"
+            layout="fill"
+            objectFit="cover"
           />
         </div>
-        <div className="order-4 md:order-3 space-y-2 lg:space-y-4">
-          <h3 className="text-xl font-semibold animate-fade-in">
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">
             Java Temanggung Robusta Green Coffee Beans
           </h3>
-          <p className="text-justify">
+          <p className="text-justify text-gray-700">
             Temanggung Regency is home to some of the finest Robusta coffee,
             cultivated organically to ensure the highest quality. Our Java
             Temanggung Robusta Green Coffee Beans are celebrated for their
@@ -56,6 +68,11 @@ export default function Product() {
             excellence results in a robust and flavorful coffee that stands out
             in the market.
           </p>
+          <Link href="/products#Robusta" passHref>
+            <div className="p-4 mt-4 rounded-xl text-center text-white bg-one-800 hover:bg-one-800/90 cursor-pointer transform duration-300">
+              Check our product
+            </div>
+          </Link>
         </div>
       </div>
     </section>
