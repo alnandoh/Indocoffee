@@ -2,7 +2,7 @@ import Image from "next/image";
 import Mountain from "@/public/posong.webp";
 export default function Heritage() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] sm:h-fit flex items-center justify-center">
+    <section className="relative min-h-[calc(100vh-80px)] sm:h-screen flex items-center justify-center">
       <Image
         src={Mountain}
         alt="Hero Image"
