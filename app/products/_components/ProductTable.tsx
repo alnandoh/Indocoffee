@@ -72,15 +72,7 @@ const productData: Product[] = [
     moisture: "12%",
     size: "13/19",
     defect: "3-8%",
-    flavors: [
-      "Bold body",
-      "Strong Aroma",
-      "Chocolate",
-      "Caramel",
-      "Spicy",
-      "Brown Sugar",
-      "Honey",
-    ],
+    flavors: ["Chocolate", "Caramel", "Brown Sugar", "Nutty", "Bold body"],
   },
   {
     name: "Robusta - Robusta Natural Java Temanggung",
@@ -92,15 +84,7 @@ const productData: Product[] = [
     moisture: "12%",
     size: "13/19",
     defect: "3-8%",
-    flavors: [
-      "Bold body",
-      "Strong Aroma",
-      "Chocolate",
-      "Caramel",
-      "Spicy",
-      "Brown Sugar",
-      "Fruity",
-    ],
+    flavors: ["Chocolate", "Caramel", "Brown Sugar", "Fruity", "Bold body"],
   },
   {
     name: "Robusta - Robusta Extended Natural (Wine) Java Temanggung ",
@@ -112,15 +96,7 @@ const productData: Product[] = [
     moisture: "12%",
     size: "13/19",
     defect: "3-8%",
-    flavors: [
-      "Bold body",
-      "Strong Aroma",
-      "Chocolate",
-      "Caramel",
-      "Spicy",
-      "Brown Sugar",
-      "Winey",
-    ],
+    flavors: ["Winey", "Chocolate", "Caramel", "Malt", "Bold body"],
   },
 
   {
@@ -204,10 +180,8 @@ const productData: Product[] = [
 ];
 
 const varietyDescriptions: Record<string, string> = {
-  Arabica: `Temanggung Regency in Central Java is a major producer of tobacco and coffee beans. The region's unique intercropping with tobacco plants imparts a subtle tobacco aftertaste to the Arabica coffee, resulting in a distinctive flavor profile. Our Java Temanggung Arabica Green Coffee Beans are rich and complex, ideal for those seeking a unique coffee experience.
-Temanggung Arabica was highlighted as one of Indonesia's top specialty coffees at the SCAA Expo 2016 in Atlanta, with Indonesia honored as the Portrait Country, showcasing its rich coffee heritage and global recognition.`,
-  Robusta: `Temanggung Regency produces some of the finest organic Robusta coffee, known for its strong aroma and rich flavors with notes of chocolate, brown sugar, and spice. Our skilled farmers use advanced post-harvest techniques, including natural, honey, and wine processing, creating a standout coffee.
-Temanggung Robusta has earned international recognition, winning a bronze medal in 2018 and a gold medal in 2019 at the AVPA awards in Paris, showcasing the exceptional craftsmanship of its farmers.`,
+  Arabica: `Temanggung Regency in Central Java is a major producer of tobacco and coffee beans. The region's unique intercropping with tobacco plants imparts a subtle tobacco aftertaste to the Arabica coffee, resulting in a distinctive flavor profile. Our Java Temanggung Arabica Green Coffee Beans are rich and complex, ideal for those seeking a unique coffee experience. Temanggung Arabica was highlighted as one of Indonesia's top specialty coffees at the SCAA Expo 2016 in Atlanta, with Indonesia honored as the Portrait Country, showcasing its rich coffee heritage and global recognition.`,
+  Robusta: `Temanggung Regency produces some of the finest organic Robusta coffee, known for its strong aroma and rich flavors with notes of chocolate, brown sugar, and spice. Our skilled farmers use advanced post-harvest techniques, including natural, honey, and wine processing, creating a standout coffee. Temanggung Robusta has earned international recognition, winning a bronze medal in 2018 and a gold medal in 2019 at the AVPA awards in Paris, showcasing the exceptional craftsmanship of its farmers.`,
 };
 
 const CoffeeProductDisplay: React.FC = () => {

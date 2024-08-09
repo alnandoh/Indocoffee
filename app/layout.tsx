@@ -10,7 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Indo Coffee",
+  title: "NusaBean",
   description: "Discover the Essence of Indonesian Coffee",
 };
 

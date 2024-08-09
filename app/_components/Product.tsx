@@ -14,7 +14,7 @@ export default function Product() {
           <Image
             src={Arabica}
             alt="Java Temanggung Arabica Coffee Beans"
-            className="transition-transform duration-300 ease-in-out hover:scale-105"
+            className="transition-transform duration-300 ease-in-out scale-125 hover:scale-[1.30]"
             layout="fill"
             objectFit="cover"
           />

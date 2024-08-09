@@ -72,7 +72,7 @@ export default function Header() {
           <Link href="/" className="nav-link">
             Home
           </Link>
-          <Link href="/#about-us" className="nav-link">
+          <Link href="/#about-us" className="nav-link" passHref>
             About Us
           </Link>
           <Link href="/products" className="nav-link">
@@ -81,7 +81,7 @@ export default function Header() {
           <Link href="/gallery" className="nav-link">
             Gallery
           </Link>
-          <Link href="#contact-us" className="nav-link">
+          <Link href="#contact-us" className="nav-link" passHref>
             Contact Us
           </Link>
         </div>
@@ -111,6 +111,7 @@ export default function Header() {
                   <Link
                     href="/#about-us"
                     className="text-lg font-semibold hover:text-gray-700"
+                    passHref
                   >
                     About Us
                   </Link>
@@ -135,6 +136,7 @@ export default function Header() {
                   <Link
                     href="#contact-us"
                     className="text-lg font-semibold hover:text-gray-700"
+                    passHref
                   >
                     Contact Us
                   </Link>
