@@ -81,18 +81,11 @@ const Modal: React.FC<{
         window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
       document.body.style.paddingRight = `${scrollBarWidth}px`;
+      document.addEventListener("keydown", handleEscape);
     }
     return () => {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-    }
-    return () => {
       document.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen, handleEscape]);
@@ -104,10 +97,36 @@ const Modal: React.FC<{
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75"
+      onClick={onClose}
     >
-      {/* Modal content */}
+      <motion.div
+        layoutId={layoutId}
+        className="relative max-w-4xl w-full h-[80vh] bg-white rounded-lg overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 text-white bg-black/50 rounded-full p-1"
+        >
+          <X size={24} />
+        </button>
+        <div className="absolute inset-0 flex items-center justify-center">
+          {children}
+        </div>
+        <button
+          onClick={onPrev}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black/50 rounded-full p-2"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={onNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black/50 rounded-full p-2"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </motion.div>
     </motion.div>
   );
 });
@@ -176,7 +195,8 @@ const Gallery: React.FC = () => {
 
   const nextImage = useCallback(() => {
     setSelectedIndex((prevIndex) => {
-      const nextIndex = (prevIndex! + 1) % galleryItems.length;
+      if (prevIndex === null) return null;
+      const nextIndex = (prevIndex + 1) % galleryItems.length;
       setSelectedImage(galleryItems[nextIndex]);
       return nextIndex;
     });
@@ -184,8 +204,9 @@ const Gallery: React.FC = () => {
 
   const prevImage = useCallback(() => {
     setSelectedIndex((prevIndex) => {
+      if (prevIndex === null) return null;
       const newPrevIndex =
-        (prevIndex! - 1 + galleryItems.length) % galleryItems.length;
+        (prevIndex - 1 + galleryItems.length) % galleryItems.length;
       setSelectedImage(galleryItems[newPrevIndex]);
       return newPrevIndex;
     });
@@ -213,7 +234,7 @@ const Gallery: React.FC = () => {
           </div>
         </motion.div>
       )),
-    [galleryItems, openModal]
+    [openModal]
   );
 
   return (
