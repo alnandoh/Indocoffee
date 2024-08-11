@@ -90,6 +90,7 @@ export default function Header() {
           <Sheet>
             <SheetTrigger asChild>
               <button
+                aria-label="Open menu"
                 className={`p-2 rounded-md hover:bg-white/20 transition-colors ${
                   atTop ? "text-white" : "text-black"
                 }`}
