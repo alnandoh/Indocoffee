@@ -212,35 +212,29 @@ const Gallery: React.FC = () => {
     });
   }, [setSelectedImage, setSelectedIndex]);
 
-  const memoizedGalleryItems = useMemo(
-    () =>
-      galleryItems.map((item, index) => (
-        <motion.div
-          key={index}
-          layoutId={`gallery-item-${index}`}
-          className="shadow-lg rounded-xl overflow-hidden relative cursor-pointer"
-          onClick={() => openModal(item, index)}
-        >
-          <div className="relative h-80">
-            <Image
-              src={item.src}
-              alt={item.alt}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
-            <h3 className="text-lg font-semibold">{item.title}</h3>
-          </div>
-        </motion.div>
-      )),
-    [openModal]
-  );
-
   return (
     <div className="wrapper py-6 md:p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {memoizedGalleryItems}
+        {galleryItems.map((item, index) => (
+          <motion.div
+            key={index}
+            layoutId={`gallery-item-${index}`}
+            className="shadow-lg rounded-xl overflow-hidden relative cursor-pointer"
+            onClick={() => openModal(item, index)}
+          >
+            <div className="relative h-80">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       <AnimatePresence>
