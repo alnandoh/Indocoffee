@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 
 interface GalleryItem {
   src: string;
@@ -43,8 +44,8 @@ const galleryItems: GalleryItem[] = [
   },
   {
     src: "/Gummy Bag Green Beans.webp",
-    alt: "Gunny Bag Green Beans",
-    title: "Gunny Bag Green Beans",
+    alt: "Gunny Sack Green Beans",
+    title: "Gunny Sack Green Beans",
   },
   {
     src: "/Ft arabika 14.webp",
@@ -228,6 +229,7 @@ const Gallery: React.FC = () => {
                 alt={item.alt}
                 layout="fill"
                 objectFit="cover"
+                priority={index === 0 || index === 1}
               />
             </div>
             <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
