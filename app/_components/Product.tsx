@@ -43,7 +43,7 @@ export default function Product() {
             </div>
           </Link>
         </div>
-        <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg lg:rounded-xl overflow-hidden">
+        <div className="md:order-4 relative w-full h-64 md:h-80 lg:h-96 rounded-lg lg:rounded-xl overflow-hidden">
           <Image
             src={Robusta}
             alt="Java Temanggung Robusta Coffee Beans"
