@@ -10,7 +10,7 @@ export default function Hero() {
         fill
         className="object-cover opacity-90 -z-10 brightness-50"
         priority
-        quality={75}
+        quality={65}
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black/50 p-4 lg:p-8">
         <div className="mx-auto p-4 lg:px-8 lg:py-16 flex flex-col md:items-center gap-6 text-stone-100">
