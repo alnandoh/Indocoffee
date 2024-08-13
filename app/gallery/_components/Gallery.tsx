@@ -230,6 +230,8 @@ const Gallery: React.FC = () => {
                 layout="fill"
                 objectFit="cover"
                 priority={index === 0 || index === 1}
+                quality={65}
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               />
             </div>
             <div className="w-full text-center absolute bottom-0 py-2 bg-black/65 text-white">
