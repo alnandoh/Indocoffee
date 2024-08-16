@@ -56,6 +56,7 @@ export default function Header() {
                 src={logoWhite}
                 alt="NusaBean Logo"
                 fill
+                priority
                 className="object-contain"
               />
             ) : (
