@@ -1,9 +1,8 @@
 "use client";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
 
 interface GalleryItem {
   src: string;
@@ -227,7 +226,7 @@ const Gallery: React.FC = () => {
               <Image
                 src={item.src}
                 alt={item.alt}
-                layout="fill"
+                fill
                 objectFit="cover"
                 priority={index === 0 || index === 1}
                 quality={65}
