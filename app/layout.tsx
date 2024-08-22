@@ -6,8 +6,17 @@ import Footer from "@/components/Footer";
 import ProgressBar from "@/components/ProgressBar";
 import CTA from "@/components/CTA";
 import ScrollToTop from "@/components/ScrollToTop";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const AnalyticsTracker = dynamic(
+  () => import("@/components/AnalyticsTracker"),
+  {
+    ssr: false,
+  }
+);
 
 export const metadata: Metadata = {
   title: "NusaBean",
@@ -22,6 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
         <ProgressBar />
         <Header />
         {children}
