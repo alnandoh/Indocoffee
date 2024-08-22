@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApps } from "firebase/app";
+import { getAnalytics, Analytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,7 +11,19 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+console.log("Firebase Config:", firebaseConfig);
+
+let analytics: Analytics | undefined;
+
+if (typeof window !== "undefined" && !getApps().length) {
+  try {
+    const app = initializeApp(firebaseConfig);
+    if (app.name && typeof window !== "undefined") {
+      analytics = getAnalytics(app);
+    }
+  } catch (error) {
+    console.error("Error initializing Firebase:", error);
+  }
+}
 
 export { analytics };
