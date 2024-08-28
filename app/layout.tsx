@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ProgressBar from "@/components/ProgressBar";
 import CTA from "@/components/CTA";
 import ScrollToTop from "@/components/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
+        <SpeedInsights />
         <ProgressBar />
         <Header />
         {children}
