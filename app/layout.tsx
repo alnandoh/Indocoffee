@@ -9,6 +9,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import StructuredData from "./_components/StructuredData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,33 @@ const AnalyticsTracker = dynamic(
 export const metadata: Metadata = {
   title: "NusaBean",
   description: "Discover the Essence of Indonesian Coffee",
+  keywords:
+    "Indonesian coffee, NusaBean, premium coffee, coffee beans, arabica coffee, robusta coffee",
+  openGraph: {
+    title: "NusaBean - Indonesian Coffee Experience",
+    description: "Discover the essence of Indonesian coffee with NusaBean.",
+    url: "https://indocoffee.id",
+    siteName: "NusaBean",
+    images: [
+      {
+        url: "https://indocoffee.id/Owner Photo.webp",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NusaBean - Indonesian Coffee Experience",
+    description:
+      "Discover the rich flavors of Indonesian coffee with NusaBean.",
+    images: ["https://indocoffee.id/Owner Photo.webp"],
+  },
 };
 
 export default function RootLayout({
@@ -35,6 +63,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
+        <StructuredData />
         <SpeedInsights />
         <ProgressBar />
         <Header />

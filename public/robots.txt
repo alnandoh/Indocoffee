@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://indocoffee.id/sitemap.xml
