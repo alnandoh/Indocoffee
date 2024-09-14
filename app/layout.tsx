@@ -7,6 +7,7 @@ import ProgressBar from "@/components/ProgressBar";
 import CTA from "@/components/CTA";
 import ScrollToTop from "@/components/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import StructuredData from "./_components/StructuredData";
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Suspense fallback={null}>
           <AnalyticsTracker />
+          <Analytics />
         </Suspense>
         <StructuredData />
         <SpeedInsights />
